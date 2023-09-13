@@ -3,7 +3,7 @@ const router = express.Router();
 const Lego = require("../models/legos");
 
 router.get("/", (req, res) => {
-  res.send(`you hit the index`);
+  res.render("index.ejs");
 });
 
 module.exports = router;
