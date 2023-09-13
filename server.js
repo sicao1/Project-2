@@ -1,9 +1,10 @@
 // IMPORTS
 const express = require("express");
 const app = express();
+// Creating Controllers
+const legosController = require("./controllers/legos");
 
 require("dotenv").config();
-
 const PORT = process.env.PORT || 3000;
 
 // setup database
@@ -25,9 +26,11 @@ db.on("disconnected", () => {
   console.log("mongo disconnected");
 });
 
-app.get("/", (req, res) => {
-  res.send("Hello world!");
-});
+// app.get("/", (req, res) => {
+//   res.send("Hello world!");
+// });
+app.use(express.urlencoded({ extended: true }));
+app.use("/legos", legosController);
 
 app.listen(PORT, () => {
   console.log(`Server is listening on PORT: ${PORT}`);
