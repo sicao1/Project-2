@@ -5,7 +5,7 @@ const app = express();
 const legosController = require("./controllers/legos");
 
 require("dotenv").config();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 // setup database
 const mongoose = require("mongoose");
@@ -26,9 +26,10 @@ db.on("disconnected", () => {
   console.log("mongo disconnected");
 });
 
-// app.get("/", (req, res) => {
-//   res.send("Hello world!");
-// });
+app.get("/", (req, res) => {
+  res.redirect("/legos");
+});
+
 app.use(express.urlencoded({ extended: true }));
 app.use("/legos", legosController);
 
