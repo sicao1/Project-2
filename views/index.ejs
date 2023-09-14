@@ -3,18 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>My Legos</title>
     <link rel="stylesheet" href="/css/app.css" />
   </head>
   <body>
     <h1>My Lego Collection Home Page</h1>
     <ul class="index-ul">
       <% for (let lego of legos) { %>
-      <li>
-        <%= lego.name %>
-        <img class="index-img" src=" <%= lego.img %>  " />
-        <%= lego.theme %> <%= lego.pieces %> <%= lego.itemNumber %> <%=
-        lego.dimensions %> <%= lego.built %> <%= lego.purchased %>
+      <li class="index-li">
+        <div class="index-info">
+          <div><a href="#"> <%= lego.name %></a></div>
+          <div><%= lego.theme %></div>
+          <div>Built: <%= lego.built %></div>
+          <div>Purchaed: <%= lego.purchased %></div>
+        </div>
+        <a href="#"> <img class="index-img" src=" <%= lego.img %>  " /></a>
       </li>
       <% } %>
     </ul>
