@@ -7,5 +7,28 @@
   </head>
   <body>
     <h1>Show Lego Set</h1>
+
+    <nav>
+      <a href="/legos">Back</a>
+    </nav>
+
+    <h2><%= lego.name %></h2>
+    <img src=" <%= lego.img %>" />
+
+    <div class="show-info">
+      <p><%= lego.theme %></p>
+      <p># of pieces: <%= lego.pieces %></p>
+      <p>Item #: <%= lego.itemNumber %></p>
+      <p>Dimensions: <%= lego.dimensions %></p>
+    </div>
+    <div class="show-built-purchased">
+      <p>
+        Built: <% if (lego.built === true) { %> ✅ <% } else { %> ❎ <% } %>
+      </p>
+      <p>
+        Purchaed: <% if (lego.purchased === true) { %> ✅ <% } else { %> ❎ <% }
+        %>
+      </p>
+    </div>
   </body>
 </html>

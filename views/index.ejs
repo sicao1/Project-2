@@ -16,11 +16,11 @@
     <ul class="index-ul">
       <% for (let lego of legos) { %>
       <li class="index-li">
-        <a href="/legos/<%= legos.id %>">
+        <a href="/legos/<%= lego.id %>">
           <img class="index-img" src=" <%= lego.img %>  "
         /></a>
         <div class="index-info">
-          <div><a href="/legos/<%= legos.id %>"> <%= lego.name %></a></div>
+          <div><a href="/legos/<%= lego.id %>"> <%= lego.name %></a></div>
           <div><%= lego.theme %></div>
           <div>
             Built: <% if (lego.built === true) { %> ✅ <% } else { %> ❎ <% } %>
