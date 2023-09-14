@@ -34,22 +34,15 @@ router.put("/:id", async (req, res) => {
     new: true,
   });
 
-  res.redirect(`/legos/${req.params.id}`);
+  res.redirect("/legos");
 });
 
 // CREATE/POST ROUTE for new.ejs
 router.post("/", async (req, res) => {
-  if (req.body.built === "on") {
-    req.body.built = true;
-  } else {
-    req.body.built = false;
-  }
-
-  if (req.body.purchased === "on") {
-    req.body.purchased = true;
-  } else {
-    req.body.purchased = false;
-  }
+  req.body.built === "on" ? (req.body.built = true) : (req.body.built = false);
+  req.body.purchased === "on"
+    ? (req.body.purchased = true)
+    : (req.body.purchased = false);
 
   try {
     const newLego = await Lego.create(req.body);
