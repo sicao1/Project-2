@@ -47,4 +47,11 @@ router.get("/", async (req, res) => {
   });
 });
 
+// DELETE ROUTE
+router.delete("/:id", async (req, res) => {
+  const lego = await Lego.findByIdAndDelete(req.params.id);
+  console.log(lego);
+  res.redirect("/legos");
+});
+
 module.exports = router;

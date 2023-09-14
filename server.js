@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 // Creating Controllers
 const legosController = require("./controllers/legos");
+const methodOverride = require("method-override");
 
 require("dotenv").config();
 const PORT = process.env.PORT || 3000;
@@ -16,6 +17,8 @@ mongoose.connect(mongoURI);
 
 //static public css
 app.use(express.static("public"));
+// method-override package for delete
+app.use(methodOverride("_method"));
 
 const db = mongoose.connection;
 // optional create status messages to check mongo connection
