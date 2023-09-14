@@ -7,7 +7,7 @@ const legoSchema = new mongoose.Schema(
     theme: { type: String },
     pieces: { type: Number },
     itemNumber: { type: Number },
-    Dimensions: { type: String },
+    dimensions: { type: String },
     built: { type: Boolean },
     purchased: { type: Boolean },
   },

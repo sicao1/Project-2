@@ -7,5 +7,10 @@
   </head>
   <body>
     <h1>My Lego Collection Home Page</h1>
+
+    <% for (let lego of legos) { %> <%= lego.name %>
+    <img src=" <%= lego.img %>  " />
+    <%= lego.theme %> <%= lego.pieces %> <%= lego.itemNumber %> <%=
+    lego.dimensions %> <%= lego.built %> <%= lego.purchased %> <% } %>
   </body>
 </html>
