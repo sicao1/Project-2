@@ -33,6 +33,7 @@ app.get("/", (req, res) => {
   res.redirect("/legos");
 });
 
+//middleware
 app.use(express.urlencoded({ extended: true }));
 app.use("/legos", legosController);
 
