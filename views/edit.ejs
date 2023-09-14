@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Legos</title>
+  </head>
+  <body>
+    <h1>Edit Legos</h1>
+
+    <form action="/legos/<%=lego.id%>?_method=PUT" method="POST">
+      Name: <input type="text" name="name" value="<%= lego.name %>" /><br />
+      Img Url: <input type="text" name="img" value="<%= lego.img %>" /><br />
+      Theme:
+      <select name="theme">
+        <option value="Architect Series">Architect Series</option>
+        <option value="Lego Icons">Lego Icons</option>
+        <option value="Spider-Man">Spider-Man</option>
+        <option value="Star Wars">Star Wars</option></select
+      ><br />
+      Pieces:
+      <input type="number" name="pieces" value="<%= lego.pieces %>" /><br />
+      Item Number:
+      <input
+        type="number"
+        name="itemNumber"
+        value="<%= lego.itemNumber %>"
+      /><br />
+      Dimensions:
+      <input
+        type="text"
+        name="dimensions"
+        value="<%= lego.dimensions %>"
+      /><br />
+      Built: <input type="checkbox" name="built" <%= lego.built ? 'checked' :
+      'unchecked' %> /><br />
+      Purchased: <input type="checkbox" name="purchased" <%= lego.built ?
+      'checked' : 'unchecked' %>/><br />
+      <input type="submit" value="Edit Lego Set" />
+    </form>
+  </body>
+</html>

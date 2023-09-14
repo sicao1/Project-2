@@ -15,6 +15,28 @@ router.get("/:id", async (req, res) => {
   });
 });
 
+// EDIT ROUTE
+router.get("/:id/edit", async (req, res) => {
+  const foundLegos = await Lego.findById(req.params.id);
+  res.render("edit.ejs", {
+    lego: foundLegos,
+  });
+});
+// PUT ROUTE for edit.ejs
+router.put("/:id", async (req, res) => {
+  req.body.built === "on" ? (req.body.built = true) : (req.body.built = false);
+
+  req.body.purchased === "on"
+    ? (req.body.purchased = true)
+    : (req.body.purchased = false);
+
+  const updateLego = await Lego.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+  });
+
+  res.redirect(`/legos/${req.params.id}`);
+});
+
 // CREATE/POST ROUTE for new.ejs
 router.post("/", async (req, res) => {
   if (req.body.built === "on") {
