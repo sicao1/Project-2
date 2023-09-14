@@ -15,8 +15,13 @@
         <div class="index-info">
           <div><a href="#"> <%= lego.name %></a></div>
           <div><%= lego.theme %></div>
-          <div>Built: <%= lego.built %></div>
-          <div>Purchaed: <%= lego.purchased %></div>
+          <div>
+            Built: <% if (lego.built === true) { %> ✅ <% } else { %> ❎ <% } %>
+          </div>
+          <div>
+            Purchaed: <% if (lego.purchased === true) { %> ✅ <% } else { %> ❎
+            <% } %>
+          </div>
         </div>
       </li>
       <% } %>
