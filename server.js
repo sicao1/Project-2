@@ -14,6 +14,9 @@ const mongoURI = process.env.MONGO_URI;
 // connect to mongo
 mongoose.connect(mongoURI);
 
+//static public css
+app.use(express.static("public"));
+
 const db = mongoose.connection;
 // optional create status messages to check mongo connection
 db.on("error", (err) => {

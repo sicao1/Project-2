@@ -1,7 +1,7 @@
 const Lego = require("./models/legos");
 const mongoose = require("mongoose");
 
-const mongoURI = "mongodb://127.0.0.1:27017/legoCollection";
+const mongoURI = process.env.MONGO_URI;
 const db = mongoose.connection;
 mongoose.connect(mongoURI);
 
