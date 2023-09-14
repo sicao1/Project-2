@@ -13,8 +13,10 @@
       Img Url: <input type="text" name="img" value="<%= lego.img %>" /><br />
       Theme:
       <select name="theme">
+        <option value="Art" <%= lego.theme === "Art" ? 'selected' : '' %> >Art</option>
         <option value="Architect Series" <%= lego.theme === "Architect Series" ? 'selected' : '' %> >Architect Series</option>
         <option value="DC" <%= lego.theme === "DC" ? 'selected' : '' %> >DC</option>
+        <option value="Disney" <%= lego.theme === "Disney" ? 'selected' : '' %> >Disney</option>
         <option value="Ideas" <%= lego.theme === "Ideas" ? 'selected' : '' %> >Ideas</option>
         <option value="Lego Icons" <%= lego.theme === "Lego Icons" ? 'selected' : '' %> >Lego Icons</option>
         <option value="Spider-Man" <%= lego.theme === "Spider-Man" ? 'selected' : '' %> >Spider-Man</option>
