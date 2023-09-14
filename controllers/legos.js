@@ -6,6 +6,15 @@ const Lego = require("../models/legos");
 router.get("/new", (req, res) => {
   res.render("new.ejs");
 });
+
+// SHOW ROUTE
+router.get("/:id", async (req, res) => {
+  const foundLegos = await Lego.findById(req.params.id);
+  res.render("show.ejs", {
+    lego: foundLegos,
+  });
+});
+
 // CREATE/POST ROUTE for new.ejs
 router.post("/", async (req, res) => {
   if (req.body.built === "on") {
