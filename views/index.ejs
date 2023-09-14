@@ -11,13 +11,13 @@
     <ul class="index-ul">
       <% for (let lego of legos) { %>
       <li class="index-li">
+        <a href="#"> <img class="index-img" src=" <%= lego.img %>  " /></a>
         <div class="index-info">
           <div><a href="#"> <%= lego.name %></a></div>
           <div><%= lego.theme %></div>
           <div>Built: <%= lego.built %></div>
           <div>Purchaed: <%= lego.purchased %></div>
         </div>
-        <a href="#"> <img class="index-img" src=" <%= lego.img %>  " /></a>
       </li>
       <% } %>
     </ul>

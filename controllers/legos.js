@@ -2,6 +2,12 @@ const express = require("express");
 const router = express.Router();
 const Lego = require("../models/legos");
 
+// NEW ROUTE
+router.get("/new", (req, res) => {
+  res.render("new.ejs");
+});
+
+// INDEX ROUTE
 router.get("/", async (req, res) => {
   const foundLegos = await Lego.find({});
   res.render("index.ejs", {
