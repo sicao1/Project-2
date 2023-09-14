@@ -14,7 +14,8 @@
       Theme:
       <select name="theme">
         <option value="Architect Series" <%= lego.theme === "Architect Series" ? 'selected' : '' %> >Architect Series</option>
-        <option value="DC" <%= lego.theme === "DC" ? 'selected' : '' %> >Architect Series</option>
+        <option value="DC" <%= lego.theme === "DC" ? 'selected' : '' %> >DC</option>
+        <option value="Ideas" <%= lego.theme === "Ideas" ? 'selected' : '' %> >Ideas</option>
         <option value="Lego Icons" <%= lego.theme === "Lego Icons" ? 'selected' : '' %> >Lego Icons</option>
         <option value="Spider-Man" <%= lego.theme === "Spider-Man" ? 'selected' : '' %> >Spider-Man</option>
         <option value="Star Wars" <%= lego.theme === "Star Wars" ? 'selected' : '' %> >Star Wars</option></select
@@ -35,7 +36,7 @@
       /><br />
       Built: <input type="checkbox" name="built" <%= lego.built ? 'checked' :
       'unchecked' %> /><br />
-      Purchased: <input type="checkbox" name="purchased" <%= lego.built ?
+      Purchased: <input type="checkbox" name="purchased" <%= lego.purchased ?
       'checked' : 'unchecked' %>/><br />
       <input type="submit" value="Submit Changes" />
     </form>
