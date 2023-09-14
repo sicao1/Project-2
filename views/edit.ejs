@@ -13,10 +13,11 @@
       Img Url: <input type="text" name="img" value="<%= lego.img %>" /><br />
       Theme:
       <select name="theme">
-        <option value="Architect Series">Architect Series</option>
-        <option value="Lego Icons">Lego Icons</option>
-        <option value="Spider-Man">Spider-Man</option>
-        <option value="Star Wars">Star Wars</option></select
+        <option value="Architect Series" <%= lego.theme === "Architect Series" ? 'selected' : '' %> >Architect Series</option>
+        <option value="DC" <%= lego.theme === "DC" ? 'selected' : '' %> >Architect Series</option>
+        <option value="Lego Icons" <%= lego.theme === "Lego Icons" ? 'selected' : '' %> >Lego Icons</option>
+        <option value="Spider-Man" <%= lego.theme === "Spider-Man" ? 'selected' : '' %> >Spider-Man</option>
+        <option value="Star Wars" <%= lego.theme === "Star Wars" ? 'selected' : '' %> >Star Wars</option></select
       ><br />
       Pieces:
       <input type="number" name="pieces" value="<%= lego.pieces %>" /><br />
@@ -36,7 +37,9 @@
       'unchecked' %> /><br />
       Purchased: <input type="checkbox" name="purchased" <%= lego.built ?
       'checked' : 'unchecked' %>/><br />
-      <input type="submit" value="Edit Lego Set" />
+      <input type="submit" value="Submit Changes" />
     </form>
+
+    <a href="/legos">Discard Changes</a>
   </body>
 </html>
