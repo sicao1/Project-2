@@ -48,33 +48,37 @@
       <div class="grid grid-cols-4 gap-4 mx-12">
         <% for (let lego of legos) { %>
         <li
-          class="grid justify-items-center p-8 border-2 border-green-950/50 rounded-md shadow-md"
+          class="p-8 border-2 border-green-950/50 rounded-md shadow-md bg-white"
         >
           <a href="/legos/<%= lego.id %>">
-            <img class="max-h-52" src=" <%= lego.img %>  "
+            <img
+              class="max-h-52 grid justify-items-center"
+              src=" <%= lego.img %>  "
           /></a>
-          <div
+
+          <!-- <div
             class="grid justify-items-left content-end bg-forestGreen text-forestOrange"
+          > -->
+          <div
+            class="grid grid-cols-4 content-end justify-items-center text-forestOrange"
           >
-            <div>
-              <a href="/legos/<%= lego.id %>"> <%= lego.name %></a>
-            </div>
-            <div><%= lego.theme %></div>
-            <div>
-              Built: <% if (lego.built === true) { %> ✅ <% } else { %> ❎ <% }
-              %>
-            </div>
-            <div>
-              Purchased: <% if (lego.purchased === true) { %> ✅ <% } else { %>
-              ❎ <% } %>
-            </div>
-
-            <form action="/legos/<%=lego.id%>?_method=DELETE" method="POST">
-              <input type="submit" value="DELETE" />
-            </form>
-
-            <a href="/legos/<%= lego.id %>/edit">Edit</a>
+            <a href="/legos/<%= lego.id %>"> <%= lego.name %></a>
           </div>
+          <div><%= lego.theme %></div>
+          <div>
+            Built: <% if (lego.built === true) { %> ✅ <% } else { %> ❎ <% } %>
+          </div>
+          <div>
+            Purchased: <% if (lego.purchased === true) { %> ✅ <% } else { %> ❎
+            <% } %>
+          </div>
+
+          <form action="/legos/<%=lego.id%>?_method=DELETE" method="POST">
+            <input type="submit" value="DELETE" />
+          </form>
+
+          <a href="/legos/<%= lego.id %>/edit">Edit</a>
+          <!-- </div> -->
         </li>
         <% } %>
       </div>
