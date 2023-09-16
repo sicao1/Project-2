@@ -16,17 +16,18 @@
             colors: {
               forestGreen: "#374336",
               forestOrange: "#FFAB2D",
+              lighterforestOrange: "#fff7ea",
             },
           },
         },
+        plugins: ["prettier-plugin-tailwindcss"],
       };
     </script>
   </head>
 
-  <body>
+  <body class="bg-lighterforestOrange">
     <style type="text/css">
-      h1,
-      nav {
+      body {
         font-family: "Mooli", sans-serif;
       }
     </style>
@@ -35,7 +36,7 @@
       Lego Collection
     </h1>
 
-    <nav class="bg-forestGreen text-center text-forestOrange pb-8">
+    <nav class="bg-forestGreen text-center text-forestOrange pb-8 mb-20">
       <a
         class="hover:border-b-4 border-forestOrange ease-in-out duration-200"
         href="/legos/new"
@@ -43,14 +44,18 @@
       >
     </nav>
 
-    <ul class="index-ul">
-      <div class="grid grid-cols-4">
+    <ul>
+      <div class="grid grid-cols-4 gap-4 mx-12">
         <% for (let lego of legos) { %>
-        <li class="index-li">
+        <li
+          class="grid justify-items-center p-8 border-2 border-green-950/50 rounded-md shadow-md"
+        >
           <a href="/legos/<%= lego.id %>">
-            <img class="index-img" src=" <%= lego.img %>  "
+            <img class="max-h-52" src=" <%= lego.img %>  "
           /></a>
-          <div class="grid justify-items-center">
+          <div
+            class="grid justify-items-left content-end bg-forestGreen text-forestOrange"
+          >
             <div>
               <a href="/legos/<%= lego.id %>"> <%= lego.name %></a>
             </div>
@@ -60,7 +65,7 @@
               %>
             </div>
             <div>
-              Purchaed: <% if (lego.purchased === true) { %> ✅ <% } else { %>
+              Purchased: <% if (lego.purchased === true) { %> ✅ <% } else { %>
               ❎ <% } %>
             </div>
 
