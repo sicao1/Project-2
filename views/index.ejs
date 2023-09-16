@@ -48,9 +48,9 @@
       <ul class="grid grid-cols-4 gap-4 mx-12">
         <% for (let lego of legos) { %>
         <li
-          class="border-2 rounded-md border-green-900/50 shadow-md grid content-end"
+          class="border-2 rounded-md border-green-900/50 shadow-md grid content-between justify-items-center bg-white py-8"
         >
-          <div class="grid justify-items-center">
+          <div>
             <a href="/legos/<%= lego.id %>">
               <img class="max-h-52" src=" <%= lego.img %>  "
             /></a>
