@@ -6,9 +6,21 @@
     <title>My Legos</title>
     <!-- <link rel="stylesheet" href="/css/app.css" /> -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              forestGreen: "#374336",
+              forestOrange: "#FFAB2D",
+            },
+          },
+        },
+      };
+    </script>
   </head>
   <body>
-    <h1 class="bg-emerald-900 text-yellow-500 text-center p-20 text-7xl">
+    <h1 class="bg-forestGreen text-forestOrange text-center p-20 text-7xl">
       Lego Collection
     </h1>
 
