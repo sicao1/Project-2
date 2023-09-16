@@ -17,6 +17,8 @@
               forestGreen: "#374336",
               forestOrange: "#FFAB2D",
               lighterforestOrange: "#fff7ea",
+              tan: "#79805A",
+              darkforestGreen: "#37381D",
             },
           },
         },
@@ -25,7 +27,7 @@
     </script>
   </head>
 
-  <body class="bg-lighterforestOrange">
+  <body class="bg-forestGreen">
     <style type="text/css">
       body {
         font-family: "Mooli", sans-serif;
@@ -48,7 +50,7 @@
       <ul class="grid grid-cols-4 gap-4 mx-12">
         <% for (let lego of legos) { %>
         <li
-          class="border-2 rounded-md border-green-900/50 shadow-md grid content-between justify-items-center bg-white p-8"
+          class="border-4 rounded-md border-darkforestGreen/50 shadow-md grid content-between justify-items-center bg-lighterforestOrange p-8"
         >
           <div>
             <a href="/legos/<%= lego.id %>">
@@ -57,7 +59,7 @@
           </div>
 
           <div
-            class="grid justify-center justify-items-left text-forestGreen pt-3 border-y-2"
+            class="grid justify-center justify-items-left text-forestGreen pt-3 border-y-2 border-tan"
           >
             <div class="pb-2">
               <a
@@ -76,17 +78,16 @@
               Purchased: <% if (lego.purchased === true) { %> ✅ <% } else { %>
               ❎ <% } %>
             </div>
-          </div>
-
-          <div class="flex flex-row">
-            <form
-              class="basis-2/4"
-              action="/legos/<%=lego.id%>?_method=DELETE"
-              method="POST"
-            >
-              <input type="submit" value="Delete" />
-            </form>
-            <a class="basis-2/4" href="/legos/<%= lego.id %>/edit">Edit</a>
+            <div class="flex flex-row">
+              <form
+                class="basis-1/2"
+                action="/legos/<%=lego.id%>?_method=DELETE"
+                method="POST"
+              >
+                <input class="cursor-pointer" type="submit" value="Delete" />
+              </form>
+              <a class="basis-1/2" href="/legos/<%= lego.id %>/edit">Edit</a>
+            </div>
           </div>
         </li>
         <% } %>
