@@ -9,7 +9,9 @@ router.get("/new", (req, res) => {
 
 // WISHLIST ROUTE
 router.get("/wishlist", async (req, res) => {
-  const notBuiltLego = await Lego.find({ built: false });
+  const notBuiltLego = await Lego.find({
+    $and: [{ built: false }, { purchased: false }],
+  });
   res.render("wishlist.ejs", {
     legos: notBuiltLego,
   });
