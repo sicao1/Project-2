@@ -34,7 +34,7 @@ router.put("/:id", async (req, res) => {
     new: true,
   });
 
-  res.redirect("/legos");
+  res.redirect(`/legos/${req.params.id}`);
 });
 
 // CREATE/POST ROUTE for new.ejs
