@@ -8,8 +8,11 @@ router.get("/new", (req, res) => {
 });
 
 // WISHLIST ROUTE
-router.get("/wishlist", (req, res) => {
-  res.render("wishlist.ejs");
+router.get("/wishlist", async (req, res) => {
+  const notBuiltLego = await Lego.find({ built: false });
+  res.render("wishlist.ejs", {
+    legos: notBuiltLego,
+  });
 });
 
 // SHOW ROUTE

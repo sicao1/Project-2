@@ -50,5 +50,53 @@
         >Add to Wishlist</a
       >
     </nav>
+
+    <div>
+      <ul class="grid grid-cols-4 gap-4 mx-12">
+        <% for (let lego of legos) { %>
+        <li
+          class="border-4 rounded-md border-darkforestGreen/50 shadow-md grid content-between justify-items-center bg-lighterforestOrange p-8"
+        >
+          <div>
+            <a href="/legos/<%= lego.id %>">
+              <img class="max-h-52" src=" <%= lego.img %>  "
+            /></a>
+          </div>
+
+          <div
+            class="grid justify-center justify-items-left text-forestGreen pt-3 border-y-2 border-tan"
+          >
+            <div class="pb-2">
+              <a
+                class="hover:border-b-4 border-forestOrange ease-in-out duration-200"
+                href="/legos/<%= lego.id %>"
+              >
+                <%= lego.name %></a
+              >
+            </div>
+            <div><%= lego.theme %></div>
+            <div>
+              Built: <% if (lego.built === true) { %> ✅ <% } else { %> ❎ <% }
+              %>
+            </div>
+            <div>
+              Purchased: <% if (lego.purchased === true) { %> ✅ <% } else { %>
+              ❎ <% } %>
+            </div>
+            <div class="flex flex-row">
+              <form
+                class="basis-1/2"
+                action="/legos/<%=lego.id%>?_method=DELETE"
+                method="POST"
+              >
+                <input class="cursor-pointer" type="submit" value="Delete" />
+              </form>
+              <a class="basis-1/2" href="/legos/<%= lego.id %>/edit">Edit</a>
+            </div>
+          </div>
+        </li>
+        <% } %>
+      </ul>
+    </div>
   </body>
 </html>
