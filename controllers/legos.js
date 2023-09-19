@@ -7,6 +7,11 @@ router.get("/new", (req, res) => {
   res.render("new.ejs");
 });
 
+// WISHLIST ROUTE
+router.get("/wishlist", (req, res) => {
+  res.render("wishlist.ejs");
+});
+
 // SHOW ROUTE
 router.get("/:id", async (req, res) => {
   const foundLegos = await Lego.findById(req.params.id);
