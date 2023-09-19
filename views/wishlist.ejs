@@ -70,13 +70,31 @@
               >
             </div>
             <div><%= lego.theme %></div>
-            <div>
-              Built: <% if (lego.built === true) { %> ✅ <% } else { %> ❎ <% }
-              %>
+            <div class="flex flex-row items-center">
+              Built: <% if (lego.built === true) { %>
+              <ion-icon
+                class="text-lg pl-2"
+                name="checkmark-circle-outline"
+              ></ion-icon>
+              <% } else { %>
+              <ion-icon
+                class="text-xl pl-2"
+                name="close-circle-outline"
+              ></ion-icon>
+              <% } %>
             </div>
-            <div>
-              Purchased: <% if (lego.purchased === true) { %> ✅ <% } else { %>
-              ❎ <% } %>
+            <div class="flex flex-row items-center">
+              Purchased: <% if (lego.purchased === true) { %>
+              <ion-icon
+                class="text-lg pl-2"
+                name="checkmark-circle-outline"
+              ></ion-icon>
+              <% } else { %>
+              <ion-icon
+                class="text-xl pl-2"
+                name="close-circle-outline"
+              ></ion-icon>
+              <% } %>
             </div>
             <div class="flex flex-row">
               <form
@@ -93,5 +111,14 @@
         <% } %>
       </ul>
     </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>
