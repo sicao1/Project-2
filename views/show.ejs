@@ -1,139 +1,71 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Legos</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
-    </style>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              forestGreen: "#374336",
-              forestOrange: "#FFAB2D",
-              lighterforestOrange: "#fff7ea",
-              tan: "#79805A",
-              darkforestGreen: "#37381D",
-              lighterforestGreen: "#4b564a",
-            },
-          },
-        },
-        plugins: ["prettier-plugin-tailwindcss"],
-      };
-    </script>
-  </head>
+<%- include('./partials/header.ejs') %>
 
-  <body class="bg-lighterforestGreen">
-    <style type="text/css">
-      body {
-        font-family: "Mooli", sans-serif;
-      }
-    </style>
+<body class="bg-lighterforestGreen">
+  <style type="text/css">
+    body {
+      font-family: "Mooli", sans-serif;
+    }
+  </style>
 
-    <h1 class="bg-forestGreen text-forestOrange text-center p-20 text-7xl">
-      Lego Collection
-    </h1>
+  <h1 class="bg-forestGreen text-forestOrange text-center p-20 text-7xl">
+    Lego Collection
+  </h1>
 
-    <nav
-      class="space-x-2 bg-forestGreen text-center text-forestOrange pb-8 mb-20"
+  <nav
+    class="space-x-2 bg-forestGreen text-center text-forestOrange pb-8 mb-20"
+  >
+    <a
+      class="hover:border-b-4 border-forestOrange ease-in-out duration-200"
+      href="/legos"
+      >Home</a
     >
-      <a
-        class="hover:border-b-4 border-forestOrange ease-in-out duration-200"
-        href="/legos"
-        >Home</a
-      >
-      <a
-        class="hover:border-b-4 border-forestOrange ease-in-out duration-200 border-x-2 px-2"
-        href="/legos/new"
-        >Add new</a
-      >
-      <a
-        class="hover:border-b-4 border-forestOrange ease-in-out duration-200"
-        href="/legos/<%= lego.id %>/edit"
-        >Edit</a
-      >
-    </nav>
+    <a
+      class="hover:border-b-4 border-forestOrange ease-in-out duration-200 border-x-2 px-2"
+      href="/legos/new"
+      >Add new</a
+    >
+    <a
+      class="hover:border-b-4 border-forestOrange ease-in-out duration-200"
+      href="/legos/<%= lego.id %>/edit"
+      >Edit</a
+    >
+  </nav>
 
-    <div class="flex justify-center mx-12 pb-20">
-      <div class="flex-auto - w-64">
-        <h2 class="text-forestOrange text-4xl pb-10"><%= lego.name %></h2>
-        <img src=" <%= lego.img %>" />
-      </div>
-      <div
-        class="flex flex-col justify-center flex-auto w-32 text-forestOrange pl-20 leading-9"
-      >
-        <h3 class="text-2xl mb-5">Specifications:</h3>
-        <p>Theme: <%= lego.theme %></p>
-        <p># of pieces: <%= lego.pieces %></p>
-        <p>Item #: <%= lego.itemNumber %></p>
-        <p>Dimensions: <%= lego.dimensions %></p>
-        <p class="flex flex-row items-center">
-          Built: <% if (lego.built === true) { %>
-          <ion-icon
-            class="text-xl pl-2"
-            name="checkmark-circle-outline"
-          ></ion-icon>
-          <% } else { %>
-          <ion-icon class="text-xl pl-2" name="close-circle-outline"></ion-icon>
-          <% } %>
-        </p>
-        <p class="flex flex-row items-center">
-          Purchased: <% if (lego.purchased === true) { %>
-          <ion-icon
-            class="text-xl pl-2"
-            name="checkmark-circle-outline"
-          ></ion-icon>
-          <% } else { %>
-          <ion-icon class="text-xl pl-2" name="close-circle-outline"></ion-icon>
-          <% }%>
-        </p>
-      </div>
+  <div class="flex justify-center mx-12 pb-20">
+    <div class="flex-auto - w-64">
+      <h2 class="text-forestOrange text-4xl pb-10"><%= lego.name %></h2>
+      <img src=" <%= lego.img %>" />
     </div>
-
-    <footer
-      class="bg-forestOrange text-forestGreen p-32 flex divide-x-8 divide-forestGreen"
+    <div
+      class="flex flex-col justify-center flex-auto w-32 text-forestOrange pl-20 leading-9"
     >
-      <a
-        href="https://www.lego.com/en-us"
-        class="text-7xl text-center hover:border-b-4 border-forestGreen ease-in-out duration-200 mr-20 py-20"
-        >Lego</a
-      >
-      <div class="self-center py-20 space-x-3.5 text-3xl">
-        <a class="ml-20" href="https://www.facebook.com/LegoLostAtSea">
-          <ion-icon name="logo-facebook"></ion-icon
-        ></a>
-        <a
-          href="https://www.pinterest.com/brickuniverse/?eq=lego%20conv&etslf=8586"
-        >
-          <ion-icon name="logo-pinterest"></ion-icon>
-        </a>
-        <a href="https://www.tiktok.com/@lego?lang=en">
-          <ion-icon name="logo-tiktok"></ion-icon>
-        </a>
-        <a
-          href="https://www.instagram.com/avanaut/?utm_source=ig_embed&ig_rid=decd2bad-4d61-417c-a94b-1ec612c744cc"
-        >
-          <ion-icon name="logo-instagram"></ion-icon>
-        </a>
-        <a
-          href="https://www.amazon.com/stores/LEGO/LEGO/page/017EF856-965D-4B56-A171-EA61CAFF45DD"
-        >
-          <ion-icon name="logo-amazon"></ion-icon
-        ></a>
-      </div>
-    </footer>
+      <h3 class="text-2xl mb-5">Specifications:</h3>
+      <p>Theme: <%= lego.theme %></p>
+      <p># of pieces: <%= lego.pieces %></p>
+      <p>Item #: <%= lego.itemNumber %></p>
+      <p>Dimensions: <%= lego.dimensions %></p>
+      <p class="flex flex-row items-center">
+        Built: <% if (lego.built === true) { %>
+        <ion-icon
+          class="text-xl pl-2"
+          name="checkmark-circle-outline"
+        ></ion-icon>
+        <% } else { %>
+        <ion-icon class="text-xl pl-2" name="close-circle-outline"></ion-icon>
+        <% } %>
+      </p>
+      <p class="flex flex-row items-center">
+        Purchased: <% if (lego.purchased === true) { %>
+        <ion-icon
+          class="text-xl pl-2"
+          name="checkmark-circle-outline"
+        ></ion-icon>
+        <% } else { %>
+        <ion-icon class="text-xl pl-2" name="close-circle-outline"></ion-icon>
+        <% }%>
+      </p>
+    </div>
+  </div>
 
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-  </body>
-</html>
+  <%- include('./partials/footer.ejs') %>
+</body>

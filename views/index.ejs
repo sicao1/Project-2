@@ -1,39 +1,4 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Legos</title>
-    <!-- <link rel="stylesheet" href="/css/app.css" /> -->
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
-    </style>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              forestGreen: "#374336",
-              forestOrange: "#FFAB2D",
-              lighterforestOrange: "#fff7ea",
-              tan: "#79805A",
-              darkforestGreen: "#37381D",
-              lighterforestGreen: "#4b564a",
-            },
-          },
-        },
-        plugins: ["prettier-plugin-tailwindcss"],
-      };
-    </script>
-  </head>
-
-  <body class="bg-lighterforestGreen">
-    <style type="text/css">
-      body {
-        font-family: "Mooli", sans-serif;
-      }
-    </style>
+<%- include('./partials/header.ejs') %>
 
     <h1 class="bg-forestGreen text-forestOrange text-center p-20 text-7xl">
       Lego Collection
@@ -117,47 +82,7 @@
         <% } %>
       </ul>
     </div>
-
-    <footer
-      class="bg-forestOrange text-forestGreen p-32 flex divide-x-8 divide-forestGreen"
-    >
-      <a
-        href="https://www.lego.com/en-us"
-        class="text-7xl text-center hover:border-b-4 border-forestGreen ease-in-out duration-200 mr-20 py-20"
-        >Lego</a
-      >
-      <div class="self-center py-20 space-x-3.5 text-3xl">
-        <a class="ml-20" href="https://www.facebook.com/LegoLostAtSea">
-          <ion-icon name="logo-facebook"></ion-icon
-        ></a>
-        <a
-          href="https://www.pinterest.com/brickuniverse/?eq=lego%20conv&etslf=8586"
-        >
-          <ion-icon name="logo-pinterest"></ion-icon>
-        </a>
-        <a href="https://www.tiktok.com/@lego?lang=en">
-          <ion-icon name="logo-tiktok"></ion-icon>
-        </a>
-        <a
-          href="https://www.instagram.com/avanaut/?utm_source=ig_embed&ig_rid=decd2bad-4d61-417c-a94b-1ec612c744cc"
-        >
-          <ion-icon name="logo-instagram"></ion-icon>
-        </a>
-        <a
-          href="https://www.amazon.com/stores/LEGO/LEGO/page/017EF856-965D-4B56-A171-EA61CAFF45DD"
-        >
-          <ion-icon name="logo-amazon"></ion-icon
-        ></a>
-      </div>
-    </footer>
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
   </body>
+
+  <%- include('./partials/footer.ejs') %>
 </html>

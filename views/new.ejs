@@ -1,31 +1,4 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Legos</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
-    </style>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              forestGreen: "#374336",
-              forestOrange: "#FFAB2D",
-              lighterforestOrange: "#fff7ea",
-              tan: "#79805A",
-              darkforestGreen: "#37381D",
-              lighterforestGreen: "#4b564a",
-            },
-          },
-        },
-        plugins: ["prettier-plugin-tailwindcss"],
-      };
-    </script>
-  </head>
+<%- include('./partials/header.ejs') %>
 
   <body class="bg-lighterforestGreen">
     <style type="text/css">

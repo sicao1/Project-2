@@ -1,157 +1,89 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Legos Wishlist</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
-    </style>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              forestGreen: "#374336",
-              forestOrange: "#FFAB2D",
-              lighterforestOrange: "#fff7ea",
-              tan: "#79805A",
-              darkforestGreen: "#37381D",
-              lighterforestGreen: "#4b564a",
-            },
-          },
-        },
-        plugins: ["prettier-plugin-tailwindcss"],
-      };
-    </script>
-  </head>
+<%- include('./partials/header.ejs') %>
 
-  <body class="bg-lighterforestGreen">
-    <style type="text/css">
-      body {
-        font-family: "Mooli", sans-serif;
-      }
-    </style>
+<body class="bg-lighterforestGreen">
+  <style type="text/css">
+    body {
+      font-family: "Mooli", sans-serif;
+    }
+  </style>
 
-    <h1 class="bg-forestGreen text-forestOrange text-center p-20 text-7xl">
-      Lego Wishlist
-    </h1>
+  <h1 class="bg-forestGreen text-forestOrange text-center p-20 text-7xl">
+    Lego Wishlist
+  </h1>
 
-    <nav class="bg-forestGreen text-center text-forestOrange pb-8 mb-20">
-      <a
-        class="hover:border-b-4 border-forestOrange ease-in-out duration-200 px-2"
-        href="/legos"
-        >Home</a
-      >
-    </nav>
-
-    <div>
-      <ul class="grid grid-cols-4 gap-4 mx-12 pb-20">
-        <% for (let lego of legos) { %>
-        <li
-          class="border-4 rounded-md border-darkforestGreen/50 shadow-md grid content-between justify-items-center bg-lighterforestOrange p-8"
-        >
-          <div>
-            <a href="/legos/<%= lego.id %>">
-              <img class="max-h-52" src=" <%= lego.img %>  "
-            /></a>
-          </div>
-
-          <div
-            class="grid justify-center justify-items-left text-forestGreen pt-3 border-y-2 border-tan"
-          >
-            <div class="pb-2">
-              <a
-                class="hover:border-b-4 border-forestOrange ease-in-out duration-200"
-                href="/legos/<%= lego.id %>"
-              >
-                <%= lego.name %></a
-              >
-            </div>
-            <div><%= lego.theme %></div>
-            <div class="flex flex-row items-center">
-              Built: <% if (lego.built === true) { %>
-              <ion-icon
-                class="text-lg pl-2"
-                name="checkmark-circle-outline"
-              ></ion-icon>
-              <% } else { %>
-              <ion-icon
-                class="text-xl pl-2"
-                name="close-circle-outline"
-              ></ion-icon>
-              <% } %>
-            </div>
-            <div class="flex flex-row items-center">
-              Purchased: <% if (lego.purchased === true) { %>
-              <ion-icon
-                class="text-lg pl-2"
-                name="checkmark-circle-outline"
-              ></ion-icon>
-              <% } else { %>
-              <ion-icon
-                class="text-xl pl-2"
-                name="close-circle-outline"
-              ></ion-icon>
-              <% } %>
-            </div>
-            <div class="flex flex-row">
-              <form
-                class="basis-1/2"
-                action="/legos/<%=lego.id%>?_method=DELETE"
-                method="POST"
-              >
-                <input class="cursor-pointer" type="submit" value="Delete" />
-              </form>
-              <a class="basis-1/2" href="/legos/<%= lego.id %>/edit">Edit</a>
-            </div>
-          </div>
-        </li>
-        <% } %>
-      </ul>
-    </div>
-
-    <footer
-      class="bg-forestOrange text-forestGreen p-32 flex divide-x-8 divide-forestGreen"
+  <nav class="bg-forestGreen text-center text-forestOrange pb-8 mb-20">
+    <a
+      class="hover:border-b-4 border-forestOrange ease-in-out duration-200 px-2"
+      href="/legos"
+      >Home</a
     >
-      <a
-        href="https://www.lego.com/en-us"
-        class="text-7xl text-center hover:border-b-4 border-forestGreen ease-in-out duration-200 mr-20 py-20"
-        >Lego</a
-      >
-      <div class="self-center py-20 space-x-3.5 text-3xl">
-        <a class="ml-20" href="https://www.facebook.com/LegoLostAtSea">
-          <ion-icon name="logo-facebook"></ion-icon
-        ></a>
-        <a
-          href="https://www.pinterest.com/brickuniverse/?eq=lego%20conv&etslf=8586"
-        >
-          <ion-icon name="logo-pinterest"></ion-icon>
-        </a>
-        <a href="https://www.tiktok.com/@lego?lang=en">
-          <ion-icon name="logo-tiktok"></ion-icon>
-        </a>
-        <a
-          href="https://www.instagram.com/avanaut/?utm_source=ig_embed&ig_rid=decd2bad-4d61-417c-a94b-1ec612c744cc"
-        >
-          <ion-icon name="logo-instagram"></ion-icon>
-        </a>
-        <a
-          href="https://www.amazon.com/stores/LEGO/LEGO/page/017EF856-965D-4B56-A171-EA61CAFF45DD"
-        >
-          <ion-icon name="logo-amazon"></ion-icon
-        ></a>
-      </div>
-    </footer>
+  </nav>
 
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-  </body>
-</html>
+  <div>
+    <ul class="grid grid-cols-4 gap-4 mx-12 pb-20">
+      <% for (let lego of legos) { %>
+      <li
+        class="border-4 rounded-md border-darkforestGreen/50 shadow-md grid content-between justify-items-center bg-lighterforestOrange p-8"
+      >
+        <div>
+          <a href="/legos/<%= lego.id %>">
+            <img class="max-h-52" src=" <%= lego.img %>  "
+          /></a>
+        </div>
+
+        <div
+          class="grid justify-center justify-items-left text-forestGreen pt-3 border-y-2 border-tan"
+        >
+          <div class="pb-2">
+            <a
+              class="hover:border-b-4 border-forestOrange ease-in-out duration-200"
+              href="/legos/<%= lego.id %>"
+            >
+              <%= lego.name %></a
+            >
+          </div>
+          <div><%= lego.theme %></div>
+          <div class="flex flex-row items-center">
+            Built: <% if (lego.built === true) { %>
+            <ion-icon
+              class="text-lg pl-2"
+              name="checkmark-circle-outline"
+            ></ion-icon>
+            <% } else { %>
+            <ion-icon
+              class="text-xl pl-2"
+              name="close-circle-outline"
+            ></ion-icon>
+            <% } %>
+          </div>
+          <div class="flex flex-row items-center">
+            Purchased: <% if (lego.purchased === true) { %>
+            <ion-icon
+              class="text-lg pl-2"
+              name="checkmark-circle-outline"
+            ></ion-icon>
+            <% } else { %>
+            <ion-icon
+              class="text-xl pl-2"
+              name="close-circle-outline"
+            ></ion-icon>
+            <% } %>
+          </div>
+          <div class="flex flex-row">
+            <form
+              class="basis-1/2"
+              action="/legos/<%=lego.id%>?_method=DELETE"
+              method="POST"
+            >
+              <input class="cursor-pointer" type="submit" value="Delete" />
+            </form>
+            <a class="basis-1/2" href="/legos/<%= lego.id %>/edit">Edit</a>
+          </div>
+        </div>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+
+  <%- include('./partials/footer.ejs') %>
+</body>
